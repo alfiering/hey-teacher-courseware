@@ -1,0 +1,7 @@
+reportlab
+pymupdf
+python-docx
+rapidocr-onnxruntime==1.2.3
+Pillow
+python-pptx
+playwright

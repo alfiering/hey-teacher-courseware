@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>课件超级工作台 · 使用指南</title>
+<style>
+@page{size:A4;margin:14mm 15mm 16mm}
+*{box-sizing:border-box}
+body{margin:0;font:10.4pt/1.7 -apple-system,"PingFang SC","Hiragino Sans GB",sans-serif;color:#1d2422}
+h1{font-size:24pt;margin:0 0 4px;letter-spacing:.02em}
+h2{font-size:15pt;color:#1f5446;margin:0 0 8px;padding-bottom:4px;border-bottom:2px solid #26534a;break-after:avoid}
+h3{font-size:11.5pt;margin:14px 0 4px;break-after:avoid}
+section{margin-top:16px}
+section.pb,section.cover+section{break-before:page;margin-top:0}
+p{margin:4px 0 8px}
+ol,ul{margin:4px 0 8px;padding-left:20px}li{margin:3px 0}
+table{width:100%;border-collapse:collapse;margin:6px 0 10px;font-size:9.6pt;break-inside:avoid}
+th,td{border:1px solid #dfe5e2;padding:5px 7px;vertical-align:top;text-align:left}
+th{background:#eef3f1;font-weight:600}
+figure{margin:8px 0 12px;break-inside:avoid;text-align:center}
+figure img{max-width:100%;border:1px solid #dfe5e2;border-radius:6px}
+figure.narrow img{max-width:62%}
+figcaption{font-size:8.8pt;color:#5b625e;margin-top:3px}
+.tip,.warn,.note{border-radius:8px;padding:7px 11px;margin:8px 0;break-inside:avoid}
+.tip{background:#eef6f2;border-left:4px solid #26534a}
+.warn{background:#fff6e5;border-left:4px solid #c8891d}
+.note{background:#f3f4f6;border-left:4px solid #8a8f98}
+b.k{background:#eef3f1;padding:0 4px;border-radius:3px;font-weight:600}
+code{font:9.4pt "SF Mono",Menlo,monospace;background:#f3f4f6;padding:0 4px;border-radius:3px}
+.cover{padding-top:40mm}
+.cover .sub{font-size:13pt;color:#5b625e;margin-bottom:20mm}
+.toc{columns:2;column-gap:12mm;font-size:10.4pt}
+.toc li{break-inside:avoid}
+.meta{font-size:9.4pt;color:#5b625e;margin-top:24mm;border-top:1px solid #dfe5e2;padding-top:8px}
+.form td{height:24px}
+</style></head><body>
+
+<section class="first cover">
+<h1>课件超级工作台</h1>
+<div class="sub">使用指南 · 从安装到做完第一节课</div>
+<ol class="toc">
+<li>写在前面</li><li>准备清单</li><li>安装（第一次）</li><li>启动、关闭和界面</li>
+<li>新建一节课</li><li>全自动：一键做完整节课</li><li>停站了怎么办</li><li>拿到课件</li>
+<li>手动模式</li><li>第一次连接 Gemini Notebook</li><li>连接 Canva（可选）</li><li>资料管理与备份</li>
+<li>常见问题</li><li>隐私与费用</li><li>问题反馈</li></ol>
+<div class="meta">v1.0 · 2026 年 11 月 · 只支持 Mac 电脑<br>开源版，代码按 AGPL-3.0 许可发布。功能和界面还会调整，遇到和指南不一致的地方，欢迎反馈。</div>
+</section>
+
+<section>
+<h2>1　写在前面</h2>
+<p>课件超级工作台把一节课的备课串成一条线：<b>教材页 → 教案 → 逐页提示词 → Gemini Notebook 生成课件 → Canva 拆成可编辑图层 → 一份能改的 PPTX</b>。它最想解决的问题是：AI 做出来的课件每一页都是图片，一个字都改不了。</p>
+<h3>适合谁</h3>
+<ul>
+<li>用 Mac 备课、想把教材快速变成可编辑课件的老师。</li>
+<li>愿意自己准备 DeepSeek、Gemini Notebook（以及可选的 Canva）账号。</li>
+<li>遇到问题愿意反馈，帮它变得更好（第 15 节有反馈表）。</li>
+</ul>
+<h3>大概要花的时间</h3>
+<table><tr><th>环节</th><th>时间</th></tr>
+<tr><td>准备账号（DeepSeek、Google、Canva）</td><td>20–40 分钟，Canva 最费时间，可以先跳过</td></tr>
+<tr><td>安装</td><td>10–30 分钟，主要是下载，看网速</td></tr>
+<tr><td>全自动做一节 15 页的课</td><td>约 30–60 分钟，大部分时间不用守着</td></tr></table>
+<div class="tip"><b>免费声明</b>：课件超级工作台由 Hey Teacher · 小鱼老师<b>免费分享</b>。如果你是花钱买到的，说明被倒卖了，请到小红书找「小鱼老师」反馈。点工作台左上角的小鱼 Logo，可以看到这份说明和你的安装包编号。</div>
+<div class="note">工作台运行在你自己的电脑上，课程资料都保存在你电脑里。用到的三个外部服务（DeepSeek、Gemini Notebook、Canva）都用<b>你自己的账号</b>，费用和额度也是你自己的。</div>
+</section>
+
+<section>
+<h2>2　准备清单</h2>
+<table>
+<tr><th style="width:24%">需要什么</th><th style="width:12%">必需？</th><th>用来做什么 / 怎么准备</th></tr>
+<tr><td>一台 Mac</td><td>必需</td><td>Intel 或 Apple 芯片都可以，建议 macOS 13 或更新。Windows 暂不支持。</td></tr>
+<tr><td>Python 3.11 或更新</td><td>必需</td><td>工作台的运行环境。Mac 自带的版本太旧，安装脚本会检查，缺了会打开下载页（见第 3 节）。</td></tr>
+<tr><td>DeepSeek API key</td><td>必需</td><td>起草教案、生成逐页提示词。按用量付费，一节课通常几分钱到几毛钱。获取方法见下面。</td></tr>
+<tr><td>Google Chrome</td><td>全自动必需</td><td>工作台会在一个专用 Chrome 窗口里自动操作 Gemini Notebook。</td></tr>
+<tr><td>能使用 Gemini Notebook 的 Google 账号</td><td>全自动必需</td><td>生成课件本身。生成次数受你账号的限额限制。</td></tr>
+<tr><td>Canva 账号 + 自己的 Canva 开发者应用</td><td>可选</td><td>把图片课件拆成可编辑图层，并合并成一份 PPTX。不连 Canva 也能拿到 Notebook 生成的课件，只是每页是图片。见第 11 节。</td></tr>
+<tr><td>LibreOffice</td><td>可选</td><td>检查 PPTX 课件、生成逐页预览。免费，libreoffice.org 下载。</td></tr>
+</table>
+<h3>怎么拿到 DeepSeek API key</h3>
+<ol>
+<li>打开 <b>platform.deepseek.com</b>，用手机号注册并登录。</li>
+<li>先充值一个小金额（比如 10 元），够做很多节课。</li>
+<li>左侧点「API keys」→「创建 API key」，起个名字（如「备课工作台」）。</li>
+<li>复制出现的那一串字符。<b>它只显示一次</b>，先粘到备忘录里，安装时要用。</li>
+</ol>
+<div class="warn">API key 相当于你的付费密码，不要发给任何人，也不要截图发到群里。</div>
+</section>
+
+<section class="pb">
+<h2>3　安装（第一次）</h2>
+<h3>第 1 步　放好文件夹</h3>
+<ol>
+<li>双击收到的压缩包，得到一个「课件超级工作台」文件夹。</li>
+<li>把整个文件夹拖到<b class="k">文稿</b>里，不要留在「下载」里。</li>
+<li><b>装好以后不要再移动或改名这个文件夹。</b>万一移动了，再双击一次「安装依赖.command」即可。</li>
+</ol>
+<h3>第 2 步　第一次打开被系统拦住</h3>
+<p>双击 .command 文件时，Mac 可能提示「无法打开」或「无法验证开发者」。这是 Mac 对网上下载文件的正常保护：</p>
+<ol>
+<li>先点「完成」关掉提示。</li>
+<li>打开<b class="k">系统设置 → 隐私与安全性</b>，往下翻到「安全性」，会看到这个文件被阻止的提示，点<b class="k">仍要打开</b>。</li>
+<li>输入电脑开机密码确认，再点「打开」。</li>
+</ol>
+<p>三个 .command 文件第一次打开时都可能要这样放行一次，以后就不会了。较早的 macOS 也可以按住 control 键点文件，选「打开」。</p>
+<h3>第 3 步　双击「安装依赖.command」</h3>
+<p>会弹出一个黑色的「终端」窗口，自动完成下面这些事，你只需要看着：</p>
+<ol>
+<li><b>检查 Python。</b>如果提示「没有找到 Python 3.11 或更新版本」，它会打开 Python 官网下载页：下载 <b>macOS 64-bit universal2 installer</b>，双击 .pkg 一路点「继续」装完，再回来双击一次「安装依赖.command」。</li>
+<li><b>下载依赖。</b>约 200 MB，先用国内镜像，失败会自动换官方源。网速慢时要 10–20 分钟，窗口里的字一直在动就是在下载。</li>
+<li><b>检查 Chrome 和 LibreOffice。</b>显示「△ 没找到」只是提醒，不影响安装。</li>
+<li><b>填写 DeepSeek key。</b>按提示粘贴（屏幕上不会显示字符，这是正常的），粘好按回车。暂时没有可以直接回车跳过，以后双击「设置DeepSeek密钥.command」再填。</li>
+</ol>
+<p>看到 <b class="k">==== 安装完成 ====</b> 就好了，按回车关掉窗口。</p>
+<div class="tip">任何一步出现 ✗ 或者窗口一直不动超过 30 分钟：把整个终端窗口截图，发给作者。</div>
+</section>
+
+<section>
+<h2>4　启动、关闭和界面</h2>
+<h3>每次使用</h3>
+<ol>
+<li>双击<b class="k">启动工作台.command</b>。终端窗口出现「✓ 工作台已打开」，浏览器会自动打开 <b>http://127.0.0.1:8792</b>。</li>
+<li>这个网址只在你自己的电脑上有效。可以把它加进浏览器书签，但前提是终端窗口开着。</li>
+<li><b>用的时候别关那个终端窗口</b>；关掉它，工作台就停了。网页可以随时关掉再打开。</li>
+<li>用完直接关掉终端窗口即可，课程都已经自动保存。</li>
+</ol>
+<div class="warn">全自动运行期间（可能要半小时以上），请把电脑接上电源，并在「系统设置 → 锁定屏幕 / 电池」里暂时不要让电脑进入睡眠。电脑睡眠时工作台也会停下。</div>
+<h3>认识界面</h3>
+<figure><img src="guide-images/09-topbar.png"><figcaption>顶栏：左边是小鱼 Logo（点它看说明和安装包编号），右边是 Canva 连接状态和外观切换</figcaption></figure>
+<ul>
+<li><b>左侧</b>：「＋ 新建课程」和你的课程列表。点课程名打开；课程名右边的垃圾桶图标是删除。</li>
+<li><b>顶栏右边</b>：「Canva 已连接 / 未配置」的小灯，以及六种外观：地铁线路、黑板粉笔、赛博朋克、彩色手绘、黑白素描、一本正经。外观只改样子，不影响功能，选一个你看着舒服的。</li>
+<li><b>中间</b>：当前课程。最上面可以在「全自动」和「手动」之间切换。</li>
+</ul>
+</section>
+
+<section>
+<h2>5　新建一节课</h2>
+<figure class="narrow"><img src="guide-images/01-new-course.png"><figcaption>点左上角「＋ 新建课程」后出现的表单</figcaption></figure>
+<table>
+<tr><th style="width:24%">栏目</th><th>怎么填</th></tr>
+<tr><td>课程名称</td><td>建议写清年级、单元、课时，例如「四年级英语 Unit 3 第一课时」。以后在列表里好找。</td></tr>
+<tr><td>学科 / 年级</td><td>选学科（共 12 个）。学科会影响教案和课件的写法。</td></tr>
+<tr><td>每课时时长</td><td>默认 35 分钟，按你学校的实际时长填。</td></tr>
+<tr><td>目标课件页数</td><td>默认 15 页。全自动里还可以选 15 页或 30 页。</td></tr>
+</table>
+<p>填好点<b class="k">建立项目</b>，就进入这节课。第一次进入会问你「手上现在有什么材料」，帮你选从哪一步开始，按实际情况点就行。</p>
+</section>
+
+<section class="pb">
+<h2>6　全自动：一键做完整节课（推荐）</h2>
+<p>在课程页最上面点<b class="k">全自动</b>。整个过程分三步准备，然后「发车」。</p>
+<figure><img src="guide-images/02-auto-mode.png"><figcaption>全自动页面：上面是 7 站进度线，下面是发车前的三步准备</figcaption></figure>
+<h3>先选「从哪里开始」</h3>
+<figure><img src="guide-images/03-start-choice.png"></figure>
+<ul>
+<li><b>从教材开始</b>：只有教材。工作台会识别教材文字、自动起草这一课时的教案，再做课件。</li>
+<li><b>从我的教案开始</b>：已经有教案。先放入你的教案；还可以再放入本课时的教材页（可选，推荐）。放了教材页，工作台会先识别教材、用教材原文核对你的教案；没放就只按教案生成。教案可以按「创意详案」扩写，也可以原样使用。整个单元的教案也行，发车时只取你选的那个课时。</li>
+</ul>
+<div class="tip"><b>手上有教材的话，建议都放进去。</b>课件里的课文、任务和人物，按教材识别最准；只有教案时，这些内容只能按教案来写，可能和教材对不上。教案和教材不一致时，以教材为准。</div>
+<h3>第 1 步　放入教材页（「从教材开始」时必需）</h3>
+<ul>
+<li>点<b class="k">选择教材文件</b>，PDF、Word、图片都可以，能一次多选。手机拍的教材照片也行，尽量拍正、拍清楚。</li>
+<li><b>整本教材的 PDF</b>：超过 30 页时，上传完会弹出「选择本课时教材页」。按 PDF 阅读器里显示的页码填，封面算第 1 页，例如 <code>12-18</code> 或 <code>12-18,20</code>，一次最多 30 页。课程里只保存你选的页。文件上限 200 MB，上传过程中不要刷新网页。</li>
+<li>同一单元的另一课时已经传过教材的，可以直接选「复用同单元课程的教材」，不用再传。</li>
+</ul>
+<h3>选「从我的教案开始」时：先放教案，教材页可选</h3>
+<figure><img src="guide-images/03b-lesson-step.png"></figure>
+<p>第 1 步点<b class="k">选择教案文件</b>，Word、PDF、文字或图片都可以。第 2 步「放入教材页（可选，推荐）」的用法和上面一样，不放也能发车。后面的「选课时…」「确认连接」分别是第 3、4 步。</p>
+<h3>第 2 步　选课时、页数和教案写法</h3>
+<table>
+<tr><th style="width:24%">选项</th><th>说明</th></tr>
+<tr><td>课时</td><td>第几课时。教材或教案里有多个课时时，只做这一课时。</td></tr>
+<tr><td>课件页数</td><td>15 页或 30 页。30 页会分两次生成，用掉 2 次 Notebook 生成次数。</td></tr>
+<tr><td>Canva 拆层上限</td><td>最多拆多少页。超过会停站问你，不会悄悄多用 Canva 额度。</td></tr>
+<tr><td>教材文字</td><td>第一次选「重新识别全部教材页」；以后改过教材文字的，选「用已保存的教材文字」。</td></tr>
+<tr><td>教案</td><td>从教材开始：「自动起草本课时教案」。从我的教案开始：「按 Skill 扩写成详案」（推荐；放了教材页会用教材原文核对）或「直接用我的教案」。</td></tr>
+<tr><td>教案写法（Skill）</td><td>推荐内置「创意详案」：把教材原文逐句写进教学过程、写出师生话术，并加一个真实情境的创意任务。</td></tr>
+</table>
+<h3>第 3 步　确认连接</h3>
+<ul>
+<li><b>Canva</b>：没连接时显示「还没连接」。不连 Canva 也可以发车，只是最后一站会停下来，你会拿到 Notebook 生成的课件（每页是图片）。连接方法见第 11 节。</li>
+<li><b>Notebook</b>：发车后会弹出一个专用 Chrome 窗口。第一次要在那个窗口里登录 Google，见第 10 节。</li>
+</ul>
+<p>三步都准备好，点<b class="k">发车</b>。</p>
+
+<h3>发车以后：7 站</h3>
+<figure><img src="guide-images/04-auto-running.png"><figcaption>运行中：进度线显示到了哪一站、每站用了多久（图为地铁线路外观）</figcaption></figure>
+<table>
+<tr><th style="width:18%">站</th><th>做什么</th><th style="width:16%">大约多久</th><th style="width:24%">你要做什么</th></tr>
+<tr><td>教材识别</td><td>把教材页变成文字</td><td>几秒到 1 分钟</td><td>不用管</td></tr>
+<tr><td>教案起草</td><td>DeepSeek 写这一课时的详案</td><td>1–5 分钟</td><td>不用管</td></tr>
+<tr><td>逐页提示词</td><td>DeepSeek 写每一页的内容和画面要求</td><td>约 1 分钟</td><td>不用管</td></tr>
+<tr><td>Notebook 生成</td><td>在专用 Chrome 窗口里生成课件并下载</td><td>5–15 分钟</td><td>别关那个 Chrome 窗口；第一次要登录</td></tr>
+<tr><td>课件检测</td><td>检查每页是不是图片、要不要拆层</td><td>几秒</td><td>不用管</td></tr>
+<tr><td>Canva 拆层合并</td><td>逐页拆成可编辑图层，合并成一份，再下载回来（约 90 MB）</td><td>10–30 分钟</td><td>不用管；网络不稳时会自动重试</td></tr>
+<tr><td>可编辑 PPTX</td><td>保存结果和字体修复版</td><td>1 分钟内</td><td>下载</td></tr>
+</table>
+<div class="tip">发车后可以去做别的，网页也可以关掉。只要终端窗口和那个 Chrome 窗口开着、电脑不睡眠，它会自己一站一站往下走。</div>
+</section>
+
+<section>
+<h2>7　停站了怎么办</h2>
+<p>遇到需要你确认或处理的事，全自动会「停站」：进度线上那一站变色，上方写着停在哪里、为什么，右上角出现<b class="k">继续</b>和<b class="k">停止</b>。</p>
+<figure><img src="guide-images/05-auto-paused.png"><figcaption>停站时：照提示处理好，点「继续」，会从停下的这一站接着开，前面做好的不会重做</figcaption></figure>
+<table>
+<tr><th style="width:34%">看到的提示（大意）</th><th>怎么处理</th></tr>
+<tr><td>还没有设置 DeepSeek API key</td><td>双击「设置DeepSeek密钥.command」填好，关掉终端窗口，重新双击「启动工作台.command」，再点「继续」。</td></tr>
+<tr><td>专用浏览器还没有登录 Google</td><td>在弹出的 Chrome 窗口里登录 Google，然后点「继续」。</td></tr>
+<tr><td>Notebook 生成次数用完 / 页面没反应</td><td>等限额恢复后再点「继续」；也可以按提示在 Notebook 里手动生成、下载，再上传到「课件拆层与合并」。</td></tr>
+<tr><td>拆层页数超过上限</td><td>确认要拆的页数，调高「Canva 拆层上限」后点「继续」。</td></tr>
+<tr><td>Canva 还没连接 / 授权过期</td><td>按第 11 节连接或重新连接，再点「继续」。</td></tr>
+<tr><td>网络不稳定 / The read operation timed out</td><td>工作台会先自动重试几次；仍然停站的话，检查网络后点「继续」，会接着下载，不会重新拆层。</td></tr>
+</table>
+<p><b>停止</b>会结束这一趟。已经提交给 Notebook 或 Canva 的任务不会撤回，可以到「手动」模式里对应的节点继续处理，或者调整设置后「重新发车」。</p>
+</section>
+
+<section>
+<h2>8　拿到课件</h2>
+<p>全部到站后，全自动区域会出现两个下载链接：</p>
+<table>
+<tr><th style="width:34%">链接</th><th>什么时候用</th></tr>
+<tr><td>下载完整可编辑 PPTX</td><td>用 PowerPoint 或 Keynote 打开、修改。文字、图片都是独立的图层，可以改字、挪位置、换图。</td></tr>
+<tr><td>下载字体修复版（WPS 友好）</td><td>用 WPS 打开的话选这一份。Canva 导出的字体在 WPS 里可能显示不对，这一份已经换成电脑上常见的字体。</td></tr>
+</table>
+<ul>
+<li>拆层后的页面难免有小问题（个别文字位置偏、图层重叠），上课前请从头翻一遍。</li>
+<li>这节课所有生成过的文件，都可以在课程页右上角<b class="k">全部资料</b>里找到并重新下载。</li>
+<li>没有连 Canva 时，可以在「全部资料」里下载 Notebook 生成的原始课件（每页是图片）。</li>
+</ul>
+</section>
+
+<section class="pb">
+<h2>9　手动模式</h2>
+<p>想一步一步自己把关，或者只用其中某一步（比如手上已有一份改不动的课件，只想拆层），切到<b class="k">手动</b>。</p>
+<figure><img src="guide-images/06-manual-map.png"><figcaption>手动模式：五个节点围着中间的「可编辑 PPTX」。第一次进入会问你手上有什么材料</figcaption></figure>
+<table>
+<tr><th style="width:26%">节点</th><th>做什么</th></tr>
+<tr><td>教材</td><td>上传教材，识别文字。可以在文本框里校对、补充，再点「保存教材文字版本」。</td></tr>
+<tr><td>教案</td><td>上传已有教案优化，或根据教材起草。可以选学校教案模板、写补充要求。</td></tr>
+<tr><td>Gemini Notebook 提示词</td><td>生成逐页提示词和来源 PDF。也可以复制提示词，自己去 Notebook 里用。</td></tr>
+<tr><td>Gemini Notebook 生成</td><td>自动在专用 Chrome 里生成，或者你手动生成后上传。</td></tr>
+<tr><td>课件拆层与合并</td><td>上传 PPTX / PDF，检测每页能不能编辑，只把图片页交给 Canva 拆层，最后合并下载一份 PPTX。</td></tr>
+</table>
+<figure class="narrow"><img src="guide-images/07-textbook-drawer.png"><figcaption>点任一节点，右侧会打开它的操作面板（图为「教材」）</figcaption></figure>
+</section>
+
+<section>
+<h2>10　第一次连接 Gemini Notebook</h2>
+<ol>
+<li>第一次跑到「Notebook 生成」时，会自动打开一个<b>单独的 Chrome 窗口</b>。它和你平时用的 Chrome 分开，不会动你的书签和登录。</li>
+<li>在这个窗口里打开 Gemini Notebook 并登录你的 Google 账号，只需要登录这一次。<b>密码只在 Google 的页面里输入，不经过工作台。</b></li>
+<li>登录好后回到工作台点「继续」。之后工作台会在这个窗口里自动新建笔记本、上传资料、生成并下载课件。</li>
+<li>运行时请不要关闭、不要操作这个窗口。生成一次会用掉一次你账号的生成次数（30 页用 2 次）。</li>
+</ol>
+<div class="note">如果 Notebook 网页改版导致自动操作失败，工作台会停站。可以在「手动」模式里复制提示词，自己在 Notebook 里生成、下载，再上传。</div>
+</section>
+
+<section class="pb">
+<h2>11　连接 Canva（可选，最复杂的一步）</h2>
+<p>拆层用的是 Canva 的 Magic Layers 接口。工作台需要通过<b>你自己在 Canva 开发者平台建的一个应用</b>来连接你的账号。这一步配置一次即可，界面是英文的；如果卡住，可以约作者远程协助。</p>
+<h3>A　在 Canva 开发者平台建应用</h3>
+<ol>
+<li>用你的 Canva 账号登录 Canva Developer Portal（工作台里「配置 Canva Developer 应用」处有链接）。平台可能要求先开启两步验证。</li>
+<li>新建一个集成（integration），名字随意，例如「我的备课工作台」。</li>
+<li>在应用的配置里：
+<ul><li>记下 <b>Client ID</b>，生成并复制 <b>Client Secret</b>（相当于密码，只显示一次）。</li>
+<li>在权限（Scopes）里勾选：<code>profile:read</code>、<code>asset:read</code>、<code>asset:write</code>、<code>design:content:read</code>、<code>design:content:write</code>、<code>design:meta:read</code>、<code>folder:read</code>。</li>
+<li>在授权回调地址（Redirect URL）里添加：<code>http://127.0.0.1:8792/oauth/canva/callback</code></li></ul></li>
+</ol>
+<div class="note">Canva 开发者平台的菜单名称可能会变；按上面三项（凭据、权限、回调地址）去找即可。</div>
+<h3>B　在工作台里填写并连接</h3>
+<figure class="narrow"><img src="guide-images/08-canva-setup.png"><figcaption>「课件拆层与合并」节点 →「Canva 账号连接」→「配置 Canva Developer 应用」</figcaption></figure>
+<ol>
+<li>打开「手动」模式的<b class="k">课件拆层与合并</b>节点（或全自动第 3 步的「去连接 Canva」），展开「Canva 账号连接」。</li>
+<li>填入 Client ID 和 Client Secret，点<b class="k">保存应用配置</b>。Secret 只保存在 Mac 的系统钥匙串里。</li>
+<li>点<b class="k">连接 Canva 账号</b>，在弹出的 Canva 页面登录并同意授权。</li>
+<li>回到工作台点<b class="k">检查 Magic Layers 权限</b>。显示有权限才能拆层；授权成功不代表一定有这项权限。</li>
+</ol>
+<div class="warn">Magic Layers 目前是 Canva 的预览功能，不保证每个账号都能用，拆层会用到你 Canva 账号的 AI 用量。提交拆层前，工作台都会让你确认页数。</div>
+</section>
+
+<section>
+<h2>12　资料管理与备份</h2>
+<ul>
+<li><b>全部资料</b>（课程页右上角）：这节课上传和生成的所有文件，可以下载，也可以点文件旁边的「删除」。</li>
+<li><b>删除课程</b>：左侧课程名右边的垃圾桶图标。</li>
+<li>删除的课程和文件不会马上消失，会先移到工作台文件夹里的 <code>data/local_workbench/trash</code>，误删了可以找作者帮忙恢复。</li>
+<li><b>备份</b>：复制整个 <code>data/local_workbench</code> 文件夹即可。换电脑时，把它放回新装好的工作台文件夹里的同一位置。</li>
+<li>每个课程最好只放这一课时的教材，不同课时建不同的课程，出来的课件更准。</li>
+</ul>
+</section>
+
+<section class="pb">
+<h2>13　常见问题</h2>
+<table>
+<tr><th style="width:34%">问题</th><th>怎么办</th></tr>
+<tr><td>双击 .command 提示「无法打开」</td><td>见第 3 节第 2 步：系统设置 → 隐私与安全性 →「仍要打开」。</td></tr>
+<tr><td>安装卡住或报错</td><td>脚本会自动换镜像重试。检查网络后再双击一次「安装依赖.command」；还不行就截图发给作者。</td></tr>
+<tr><td>双击「启动工作台」后浏览器没打开</td><td>手动打开浏览器，访问 http://127.0.0.1:8792 。</td></tr>
+<tr><td>提示端口 8792 被占用</td><td>可能之前的工作台窗口还开着，先关掉；或者重启电脑后再启动。</td></tr>
+<tr><td>网页显示「会话已失效，请刷新页面」</td><td>刷新网页即可。重启过工作台后常会出现。</td></tr>
+<tr><td>上传教材失败</td><td>看提示原因：图片单张不超过 10 MB、8000 万像素；教材 PDF 不超过 200 MB；PDF 不能加密。上传时不要刷新网页。</td></tr>
+<tr><td>生成的课件不是我选的那个课时</td><td>检查第 2 步「课时」是否选对；用「从我的教案开始」时，教案里各课时的标题要清楚（如「第二课时」「Period 2」）。</td></tr>
+<tr><td>课件里的人物和教材不一样</td><td>这一版不带教材人物图，也不能从教材页自动截取人物。可以在「手动」模式的提示词节点里手动写人物名字和特征。</td></tr>
+<tr><td>全自动停站</td><td>见第 7 节的对照表。</td></tr>
+<tr><td>拆层后有的页还是改不动</td><td>在「课件拆层与合并」里看该页的检测结果，把截图和页码发给作者。</td></tr>
+<tr><td>想换 DeepSeek key</td><td>双击「设置DeepSeek密钥.command」，然后重新启动工作台。</td></tr>
+</table>
+</section>
+
+<section>
+<h2>14　隐私与费用</h2>
+<h3>资料存在哪里</h3>
+<ul>
+<li>所有课程、上传的文件、生成的课件都在你电脑上的工作台文件夹里（<code>data/local_workbench</code>），<b>不会上传给作者</b>。</li>
+<li>DeepSeek key 保存在工作台文件夹的 <code>config.local.json</code> 里；Canva Secret 和授权保存在 Mac 的系统钥匙串里。</li>
+</ul>
+<h3>哪些内容会发给外部服务</h3>
+<ul>
+<li><b>DeepSeek</b>：教材文字、教案文字（用来起草教案和提示词）。</li>
+<li><b>Gemini Notebook</b>：来源 PDF 和提示词（用来生成课件）。</li>
+<li><b>Canva</b>：需要拆层的课件页面图片。</li>
+</ul>
+<div class="warn">请不要在教材、教案里放学生的姓名、照片、成绩等个人信息。不要把 <code>data</code> 文件夹或 <code>config.local.json</code> 发给任何人。</div>
+<h3>费用</h3>
+<p>工作台本身免费、开源（AGPL-3.0）。DeepSeek 按用量付费；Gemini Notebook 和 Canva 用你自己账号的套餐和额度。工作台不会替你付费，也不会在你不知情时提交大量拆层任务。</p>
+</section>
+
+<section class="pb">
+<h2>15　问题反馈</h2>
+<p>可以在 GitHub 仓库的 Issues 里提交，也可以在小鱼老师的交流群里反馈。遇到问题时，请附上三样东西：<b>① 截图</b>（终端窗口或网页）<b>② 卡在第几步</b> <b>③ 你刚才点了什么</b>。</p>
+<p>每做完一节课，麻烦花 3 分钟填一下下面这张表（拍照或照着回复都可以）：</p>
+<table class="form">
+<tr><th style="width:40%">项目</th><th>你的记录</th></tr>
+<tr><td>安装包编号（点左上角小鱼 Logo 查看）</td><td></td></tr>
+<tr><td>电脑型号与系统版本（苹果菜单 → 关于本机）</td><td></td></tr>
+<tr><td>安装用了多久？卡在哪一步？</td><td></td></tr>
+<tr><td>学科、年级、课时；「从教材开始」还是「从我的教案开始」，有没有放教材页</td><td></td></tr>
+<tr><td>全自动从发车到拿到 PPTX 用了多久</td><td></td></tr>
+<tr><td>停站了几次？分别是什么提示</td><td></td></tr>
+<tr><td>Canva 连上了吗？Magic Layers 权限检查结果</td><td></td></tr>
+<tr><td>课件一共几页？能直接用的几页？要大改的几页</td><td></td></tr>
+<tr><td>教案和课件内容准确吗？哪里不对</td><td></td></tr>
+<tr><td>最想改进的一件事</td><td></td></tr>
+<tr><td>如果以后收费，你觉得合理的价格 / 方式</td><td></td></tr>
+</table>
+<p class="note">谢谢你愿意花时间试用。你遇到的每一个问题，都会让下一位老师少走一段弯路。</p>
+</section>
+</body></html>

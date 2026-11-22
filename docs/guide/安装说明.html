@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>课件超级工作台 · 安装说明</title>
+<style>
+@page{size:A4;margin:9mm 11mm}
+*{box-sizing:border-box}
+body{margin:0;font:9.3pt/1.45 -apple-system,"PingFang SC","Hiragino Sans GB",sans-serif;color:#1d2422;background:#fff}
+.head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid #26534a;padding-bottom:6px;margin-bottom:8px}
+h1{margin:0;font-size:17pt;letter-spacing:.02em;color:#1d2422}
+h1 small{font-size:10pt;font-weight:400;color:#5b625e;margin-left:8px}
+.ver{font-size:8.5pt;color:#5b625e;text-align:right}
+h2{font-size:10.6pt;margin:0 0 3px;color:#26534a;display:flex;align-items:center;gap:6px}
+h2 .n{display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#26534a;color:#fff;font-size:9pt}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px}
+.box{border:1px solid #dfe5e2;border-radius:8px;padding:6px 10px}
+.wide{grid-column:1/-1}
+ol,ul{margin:0;padding-left:17px}li{margin:1px 0}
+table{width:100%;border-collapse:collapse;font-size:8.9pt}
+td{padding:2px 4px;border-bottom:1px solid #eef1ef;vertical-align:top}
+td:first-child{white-space:nowrap;font-weight:600;width:8.5em}
+.tag{display:inline-block;font-size:8pt;padding:0 5px;border-radius:3px;background:#e6efeb;color:#1f5446;margin-left:3px;font-weight:400}
+.opt{background:#f3f1ea;color:#6a5a2c}
+b.f{font-weight:600;color:#1d2422;background:#eef3f1;padding:0 4px;border-radius:3px}
+.warn{background:#fff7e6;border-color:#f0dcb0}
+.note{font-size:8.8pt;color:#5b625e}
+.qa dt{font-weight:600;margin-top:2px}.qa dd{margin:0 0 2px}
+.foot{margin-top:7px;font-size:8.5pt;color:#5b625e;border-top:1px solid #dfe5e2;padding-top:5px;display:flex;justify-content:space-between;gap:12px}
+</style></head><body>
+<div class="head"><h1>课件超级工作台<small>安装说明 · v1.0</small></h1><div class="ver">只支持 Mac 电脑<br>2026 年 11 月</div></div>
+
+<div class="grid">
+<div class="box wide"><h2>需要提前准备</h2>
+<table>
+<tr><td>一台 Mac</td><td>Intel 或 Apple 芯片都可以。工作台和你的课程资料都在这台电脑上。</td></tr>
+<tr><td>Python 3.11+</td><td>Mac 自带的版本太旧。安装脚本会自动检查，缺了会打开下载页，照提示装一下就行。</td></tr>
+<tr><td>DeepSeek API key</td><td>生成教案和逐页提示词要用。到 platform.deepseek.com 注册创建，<b>按用量自付</b>，一节课通常几分钱到几毛钱。</td></tr>
+<tr><td>Google Chrome</td><td>自动操作 Gemini Notebook 生成课件要用，需要一个<b>能正常使用 Gemini Notebook 的 Google 账号</b>。</td></tr>
+<tr><td>LibreOffice<span class="tag opt">可选</span></td><td>检查 PPTX 课件、生成逐页预览要用。libreoffice.org 免费下载。</td></tr>
+<tr><td>Canva 账号<span class="tag opt">可选</span></td><td>把图片课件拆成可编辑图层要用。需要你自己的 Canva 开发者应用和 AI 额度；这是 Canva 的预览功能，不保证每个账号都能用。</td></tr>
+</table></div>
+
+<div class="box"><h2><span class="n">1</span>放好文件夹</h2>
+<ol><li>双击压缩包解压，得到「课件超级工作台」文件夹。</li>
+<li>把整个文件夹拖到<b class="f">文稿</b>里（不要留在「下载」里）。</li>
+<li><b>装好以后不要再移动或改名。</b>移动了就再双击一次「安装依赖」。</li></ol></div>
+
+<div class="box"><h2><span class="n">2</span>双击「安装依赖.command」</h2>
+<ol><li>会打开一个黑色的终端窗口，自动检查电脑并安装，第一次约 5–20 分钟。</li>
+<li>缺 Python 会打开下载页：下载 <b>macOS universal2 installer</b>，装好再双击一次。</li>
+<li>最后会请你粘贴 DeepSeek key（屏幕不显示，粘好回车）。看到「安装完成」就好了。</li></ol></div>
+
+<div class="box"><h2><span class="n">3</span>双击「启动工作台.command」</h2>
+<ol><li>浏览器会自动打开 <b class="f">127.0.0.1:8792</b>，这就是工作台。</li>
+<li>使用期间<b>别关那个终端窗口</b>；用完直接关掉。</li>
+<li>以后每次使用，只需要这一步。</li></ol></div>
+
+<div class="box"><h2><span class="n">4</span>做第一节课</h2>
+<ol><li>左上角「新建课程」，填课名和学科。</li>
+<li>选「全自动」→ 放入教材页（照片、PDF、Word 都行）→ 选课时和页数 →「发车」。</li>
+<li>第一次跑到 Notebook 时会弹出一个单独的 Chrome 窗口，在里面登录 Google 一次即可；密码不经过工作台。</li></ol></div>
+
+<div class="box warn wide"><h2>第一次双击时被系统拦住？</h2>
+提示「无法打开」或「无法验证开发者」是 Mac 对网上下载文件的正常保护。打开<b class="f">系统设置 → 隐私与安全性</b>，往下找到这个文件的提示，点<b class="f">仍要打开</b>，输入电脑密码确认。每个 .command 文件只需要这样放行一次。较早的 macOS 也可以按住 control 键点文件，选「打开」。</div>
+
+<div class="box"><h2>常见问题</h2>
+<dl class="qa">
+<dt>安装卡住或报错？</dt><dd>脚本先用国内镜像，失败会自动换官方源再试。还不行就检查网络，再双击一次。</dd>
+<dt>想换 DeepSeek key？</dt><dd>双击「设置DeepSeek密钥.command」，再重新启动工作台。</dd>
+<dt>提示端口被占用？</dt><dd>先关掉之前的工作台窗口，或重启电脑后再启动。</dd>
+<dt>Notebook 那一步停住了？</dt><dd>看看弹出的 Chrome 窗口是否要登录或确认；处理好后在工作台点「继续」。</dd></dl></div>
+
+<div class="box"><h2>资料和隐私</h2>
+<ul><li>课程和文件都保存在本文件夹的 <b class="f">data/local_workbench</b> 里，不会上传给作者。备份时复制这个文件夹即可。</li>
+<li>生成教案时，教材和教案文字会发给 DeepSeek；课件生成会用到你的 Google 和 Canva 账号。<b>请不要放入学生的姓名、照片等个人信息。</b></li>
+<li>不要把 data 文件夹或 config.local.json（里面有你的 key）发给别人。</li></ul></div>
+</div>
+
+<div class="foot"><span>完整步骤、停站处理和反馈表见《使用指南.pdf》。遇到问题：截图并写清楚卡在第几步，发给作者。</span><span>开源版 · AGPL-3.0</span></div>
+</body></html>

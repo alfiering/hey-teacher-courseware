@@ -1,0 +1,16 @@
+# Teachers' own data and keys: never commit
+/data/
+/config.local.json
+/.env
+/.env.*
+
+# Python environment and caches
+/.venv/
+__pycache__/
+*.py[cod]
+
+# Built OCR helper
+/common/ocr_vision_bin
+
+# macOS
+.DS_Store
